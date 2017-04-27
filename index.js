@@ -8,6 +8,7 @@
 'use strict';
 
 const scanner = require('node-wifiscanner');
+const logger = require('pown-logger');
 
 let pkgName = require('./package').name;
 
@@ -22,8 +23,6 @@ exports.yargs = {
   builder: {},
 
   handler: () => {
-    const logger = require('pown-logger');
-
     logger.title(pkgName);
 
     scanner.scan((err, data) => {
