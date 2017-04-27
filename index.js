@@ -8,6 +8,7 @@
 'use strict';
 
 const scanner = require('node-wifiscanner');
+
 let pkgName = require('./package').name;
 
 
