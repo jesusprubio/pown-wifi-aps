@@ -38,7 +38,7 @@ From the same directory as your project's package.json, install this module with
 npm install pown-wifi-aps --save
 ```
 
-Once that's done, you can invoke pown credits like this:
+Once that's done, you can invoke it like this:
 
 ```sh
 POWN_ROOT=. /node_modules/.bin/pown wifi-aps
