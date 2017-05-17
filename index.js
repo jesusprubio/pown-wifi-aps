@@ -7,19 +7,11 @@
 
 'use strict';
 
-const scanner = require('node-wifiscanner');
-const wifiName = require('wifi-name');
-const logger = require('pown-logger');
-
-let pkgName = require('./package').name;
-
-
 const defaults = false;
-pkgName = pkgName.slice(5);
 
 
 exports.yargs = {
-  command: pkgName,
+  command: 'wifi-aps',
   describe: 'Wifi access point mapper',
 
   builder: {
@@ -31,7 +23,14 @@ exports.yargs = {
   },
 
   handler: (argv = {}) => {
-    logger.title(pkgName);
+    /* eslint-disable global-require */
+    const scanner = require('node-wifiscanner');
+    const wifiName = require('wifi-name');
+    const logger = require('pown-logger');
+    /* eslint-enable global-require */
+
+
+    logger.title(this.yargs.command);
 
     scanner.scan((err, aps) => {
       if (err) { throw err; }
